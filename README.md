@@ -18,8 +18,8 @@ You can run bundle from command line
 ## Installing to App
 Run generator to install JQuery Bootstrap. You can run generator from command line
 
-    rails g plugins:install    
-    
+    rails g plugins:install
+
 Generator;
 
     Adds JQuery Bootstrap to Asset Pipeline (application.js)
@@ -36,8 +36,9 @@ You have to require (bootstrap.js) in your application.js
     //= require jquery/bootstrap/jquery.blockUI
     //= require jquery/bootstrap/jquery.hotkeys
     //= require jquery/bootstrap/jquery.tablesorter
-    //= require jquery/bootstrap/jquery.timeago     
-            
+    //= require jquery/bootstrap/jquery.timeago
+    //= require jquery/bootstrap/sisyphus.min
+
     $(document).ready(function(){
       /* Your JQuery plugin javascripts goes here... */
     });
@@ -50,35 +51,37 @@ JQuery plugins are bundled;
 		JQuery Timego
 		JQuery Tablesorter
 		JQuery Hotkeys
+		Sisyphus
 
 
 ## Using With Coffeescript
 Using with the CoffeeScript is easy.
 Just create a "plugins.js.coffee" file to /app/assets/javascripts/ folder and put lines below. Optionally you can use generator.
 
-		$(document).ready ->
-		 	$(document).ajaxStart($.blockUI).ajaxStop $.unblockUI
-		 	
-		$(document).ready ->
-				$("abbr.timeago").timeago()
-		
-		$(document).ready ->
-			$(".tablesorter").tablesorter()	  
-		 
-		$(document).ready ->
-				jQuery(document).bind "keydown", "f1", (evt) ->
-					jQuery("#modal").modal "show", ->
-					false    
+    $(document).ready ->
+     	$(document).ajaxStart($.blockUI).ajaxStop $.unblockUI
+    $(document).ready ->
+		    $("abbr.timeago").timeago()
+    $(document).ready ->
+	    $(".tablesorter").tablesorter()
+    $(document).ready ->
+		    jQuery(document).bind "keydown", "f1", (evt) ->
+			    jQuery("#modal").modal "show", ->
+			    false
+    $(document).ready ->
+      $("form").sisyphus()
+
 
 ## Changelog
 <ul>
   <li>First version released</li>
   <li>Added generators</li>
+  <li>Added sisyphus</li>
 </ul>
 
 ## Future
 <ul>
-  <li>Writing tests (not implemented yet)</li>  
+  <li>Writing tests (not implemented yet)</li>
 </ul>
 
 
